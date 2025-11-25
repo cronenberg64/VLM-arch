@@ -1,0 +1,4 @@
+name: mobilenetv3_large_100
+pretrained: false
+num_classes: ${dataset.num_classes}
+drop_path_rate: 0.0
