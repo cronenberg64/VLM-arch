@@ -15,6 +15,20 @@ from src.engine.trainer import Trainer
 def main(cfg: DictConfig):
     print(OmegaConf.to_yaml(cfg))
     
+    # DEBUG: Check CUDA availability
+    import torch
+    print(f"\n{'='*50}")
+    print(f"CUDA DEBUG INFO:")
+    print(f"Python executable: {sys.executable}")
+    print(f"Torch location: {torch.__file__}")
+    print(f"PyTorch version: {torch.__version__}")
+    print(f"CUDA available: {torch.cuda.is_available()}")
+    print(f"CUDA device count: {torch.cuda.device_count() if torch.cuda.is_available() else 0}")
+    if torch.cuda.is_available():
+        print(f"Current CUDA device: {torch.cuda.current_device()}")
+        print(f"CUDA device name: {torch.cuda.get_device_name(0)}")
+    print(f"{'='*50}\n")
+    
     # Initialize WandB
     if not cfg.debug:
         wandb.init(

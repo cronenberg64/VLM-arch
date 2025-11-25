@@ -273,7 +273,7 @@ VLM-arch/
 
 ### Core Python Files Explained
 
-#### 📁 `src/data/`
+#### src/data/
 
 **`datamodule.py`** - Data Pipeline Manager
 - **Purpose**: Handles dataset loading, subsampling, and data loader creation
@@ -295,7 +295,7 @@ VLM-arch/
 
 ---
 
-#### 📁 `src/models/`
+#### src/models/
 
 **`factory.py`** - Model Factory
 - **Purpose**: Unified interface to create any backbone model
@@ -321,7 +321,7 @@ model = timm.create_model(
 
 ---
 
-#### 📁 `src/engine/`
+#### src/engine/
 
 **`trainer.py`** - Training Engine
 - **Purpose**: Implements the complete training loop
@@ -353,7 +353,7 @@ for epoch in range(epochs):
 
 ---
 
-#### 📁 `src/benchmark/`
+#### src/benchmark/
 
 **`profiler.py`** - Performance Profiler
 - **Purpose**: Measures model efficiency and resource usage
@@ -372,7 +372,7 @@ for epoch in range(epochs):
 
 ---
 
-#### 📁 `scripts/`
+#### scripts/
 
 **`train.py`** - Training Entry Point
 - **Purpose**: Main script to train models
@@ -438,7 +438,7 @@ python scripts/run_batch.py --mode collect
 
 ---
 
-#### 📁 `configs/`
+#### configs/
 
 **Hydra Configuration System**
 
@@ -577,7 +577,7 @@ python scripts/train.py model=vit_base \
 2. **Train models** with different dataset sizes (5k, 10k, 50k, full)
 3. **Analyze results** in Jupyter notebook
 4. **Generate visualizations** for your research
-5. **Write your paper!** 📝
+5. **Write your paper!**
 
 ---
 

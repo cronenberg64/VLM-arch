@@ -6,25 +6,25 @@
 
 ---
 
-## 🎯 Overview
+## Overview
 
 This project addresses a critical gap in vision model research: **how do different architectures perform when trained with limited data?**
 
 Most academic benchmarks assume:
-- ✗ Millions of training samples
-- ✗ Expensive compute clusters
-- ✗ Large batch sizes (512+)
+- Millions of training samples
+- Expensive compute clusters
+- Large batch sizes (512+)
 
 **Real robotics teams face:**
-- ✓ <300k training samples
-- ✓ 1-4 GPUs or edge devices
-- ✓ Tight latency, memory, and power constraints
+- <300k training samples
+- 1-4 GPUs or edge devices
+- Tight latency, memory, and power constraints
 
 This framework provides **standardized benchmarking** to answer: *Which backbone should a robotics company actually use?*
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Clone and setup
@@ -42,11 +42,11 @@ python scripts/train.py model=convnext_v2_tiny dataset=cifar10 dataset.subset=50
 jupyter lab notebooks/analysis.ipynb
 ```
 
-📖 **[Read the Complete Usage Guide](USAGE_GUIDE.md)** for detailed instructions.
+**[Read the Complete Usage Guide](USAGE_GUIDE.md)** for detailed instructions.
 
 ---
 
-## 📊 What Gets Benchmarked
+## What Gets Benchmarked
 
 ### Architectures (7 models)
 | Type | Models |
@@ -74,7 +74,7 @@ jupyter lab notebooks/analysis.ipynb
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 VLM-arch/
@@ -94,19 +94,19 @@ VLM-arch/
 
 ---
 
-## 💡 Key Features
+## Key Features
 
-✅ **Automatic subsampling** with stratified sampling (maintains class balance)  
-✅ **Unified interface** for 7+ architectures via `timm`  
-✅ **Mixed precision training** (AMP) and gradient accumulation  
-✅ **Comprehensive profiling**: FLOPs, latency, memory, throughput  
-✅ **WandB integration** for experiment tracking  
-✅ **Batch processing** for running multiple experiments  
-✅ **Jupyter notebooks** for analysis and visualization  
+- **Automatic subsampling** with stratified sampling (maintains class balance)  
+- **Unified interface** for 7+ architectures via `timm`  
+- **Mixed precision training** (AMP) and gradient accumulation  
+- **Comprehensive profiling**: FLOPs, latency, memory, throughput  
+- **WandB integration** for experiment tracking  
+- **Batch processing** for running multiple experiments  
+- **Jupyter notebooks** for analysis and visualization  
 
 ---
 
-## 📈 Example Results
+## Example Results
 
 After running `python scripts/run_batch.py --mode benchmark`:
 
@@ -122,7 +122,7 @@ mobilenetv3_large_100    4.21       0.007        9.89           1133.44
 
 ---
 
-## 🔬 Research Workflow
+## Research Workflow
 
 1. **Benchmark**: Profile all models to understand complexity trade-offs
 2. **Train**: Run experiments with different data sizes (5k → 50k → full)
@@ -131,7 +131,7 @@ mobilenetv3_large_100    4.21       0.007        9.89           1133.44
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 - **[Complete Usage Guide](USAGE_GUIDE.md)** - Detailed instructions, code explanations, advanced usage
 - **[Implementation Plan](implementation_plan.md)** - Technical design decisions
@@ -139,7 +139,7 @@ mobilenetv3_large_100    4.21       0.007        9.89           1133.44
 
 ---
 
-## 🎓 Use Cases
+## Use Cases
 
 This framework is ideal for:
 - **Robotics researchers** evaluating vision backbones for edge deployment
@@ -149,7 +149,7 @@ This framework is ideal for:
 
 ---
 
-## 🛠️ Advanced Usage
+## Advanced Usage
 
 ### Custom Dataset Sizes
 ```bash
@@ -175,7 +175,7 @@ See [USAGE_GUIDE.md](USAGE_GUIDE.md#advanced-usage) for more details.
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions welcome! Ideas:
 - Add new architectures (RepVGG, PVT, CoAtNet, etc.)
@@ -185,13 +185,13 @@ Contributions welcome! Ideas:
 
 ---
 
-## 📄 License
+## License
 
 MIT License - See [LICENSE](LICENSE) for details
 
 ---
 
-## 📖 Citation
+## Citation
 
 If you use this framework in your research, please cite:
 
@@ -206,7 +206,7 @@ If you use this framework in your research, please cite:
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Built with [PyTorch](https://pytorch.org/), [timm](https://github.com/huggingface/pytorch-image-models), and [Hydra](https://hydra.cc/)
 - Inspired by real-world robotics deployment challenges
