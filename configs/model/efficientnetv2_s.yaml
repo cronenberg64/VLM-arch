@@ -1,0 +1,4 @@
+name: tf_efficientnetv2_s
+pretrained: false
+num_classes: ${dataset.num_classes}
+drop_path_rate: 0.1

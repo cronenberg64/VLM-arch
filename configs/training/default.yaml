@@ -1,0 +1,13 @@
+epochs: 100
+batch_size: 128
+lr: 1e-3
+weight_decay: 0.05
+optimizer: adamw
+scheduler: cosine
+warmup_epochs: 5
+num_workers: 4
+pin_memory: true
+grad_clip: 1.0
+amp: true
+accumulate_grad_batches: 1
+device: cuda

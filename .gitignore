@@ -36,6 +36,6 @@ ENV/
 # Project specific
 outputs/
 wandb/
-data/
+/data/
 checkpoints/
 results/
