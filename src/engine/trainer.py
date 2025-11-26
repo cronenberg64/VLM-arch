@@ -21,7 +21,7 @@ class Trainer:
         self.criterion = nn.CrossEntropyLoss()
         self.optimizer = self._setup_optimizer()
         self.scheduler = self._setup_scheduler()
-        self.scaler = GradScaler(enabled=cfg.training.amp)
+        self.scaler = GradScaler(cuda=True, enabled=cfg.training.amp)
         
         self.epochs = cfg.training.epochs
         self.accumulate_grad_batches = cfg.training.get('accumulate_grad_batches', 1)
@@ -56,7 +56,7 @@ class Trainer:
         for i, (images, labels) in enumerate(pbar):
             images, labels = images.to(self.device), labels.to(self.device)
             
-            with autocast(enabled=self.cfg.training.amp):
+            with autocast(cuda=True, enabled=self.cfg.training.amp):
                 outputs = self.model(images)
                 loss = self.criterion(outputs, labels)
                 loss = loss / self.accumulate_grad_batches
@@ -91,7 +91,7 @@ class Trainer:
         for images, labels in self.val_loader:
             images, labels = images.to(self.device), labels.to(self.device)
             
-            with autocast(enabled=self.cfg.training.amp):
+            with autocast(cuda=True, enabled=self.cfg.training.amp):
                 outputs = self.model(images)
                 loss = self.criterion(outputs, labels)
 
