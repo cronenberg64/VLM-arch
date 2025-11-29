@@ -7,6 +7,7 @@ from tqdm import tqdm
 import time
 from typing import Dict, Any
 from omegaconf import DictConfig
+import os
 
 class Trainer:
     def __init__(self, model, train_loader, val_loader, cfg: DictConfig):
@@ -123,4 +124,22 @@ class Trainer:
             
             if val_acc > best_acc:
                 best_acc = val_acc
-                # Save checkpoint logic here if needed
+                self.save_checkpoint(epoch, val_acc)
+                print(f"New best model saved with accuracy: {val_acc:.2f}%")
+
+    def save_checkpoint(self, epoch, val_acc):
+        checkpoint = {
+            'epoch': epoch,
+            'model_state_dict': self.model.state_dict(),
+            'optimizer_state_dict': self.optimizer.state_dict(),
+            'scheduler_state_dict': self.scheduler.state_dict(),
+            'val_acc': val_acc,
+            'config': self.cfg
+        }
+        # Save to current working directory (Hydra manages this)
+        save_path = os.path.join(os.getcwd(), "best_model.pth")
+        torch.save(checkpoint, save_path)
+        
+        # if wandb.run is not None:
+        #     # Use policy="now" to upload immediately and avoid symlink issues on Windows
+        #     wandb.save(save_path, policy="now")
