@@ -39,7 +39,7 @@ Performance metrics for inference speed and model complexity.
 | **ConvNeXt-V2 Tiny** | 99.52 | 51.58 | 0.0132 | 3.3098 | ~50 min | 100 | Heavy overfitting |
 | MobileNetV3 | 63.06 | 51.59 | 1.0444 | 1.4148 | ~70 min | 100 | Best Val Acc: 51.59% |
 | **ResNet50** | 99.62 | 67.19 | 0.1141 | NaN | ~60 min | 100 | Best performer so far |
-| EfficientNetV2-S | - | - | - | - | - | - | - |
+| **EfficientNetV2-S** | 93.52 | 65.06 | 0.1887 | 1.5018 | ~55 min | 100 | Strong performance, needed amp=false |
 | ViT-Base | - | - | - | - | - | - | - |
 | DeiT-Small | - | - | - | - | - | - | - |
 | Swin-Tiny | - | - | - | - | - | - | - |

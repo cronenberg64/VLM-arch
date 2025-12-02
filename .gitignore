@@ -39,3 +39,5 @@ wandb/
 /data/
 checkpoints/
 results/
+*.pth
+best_model.pth

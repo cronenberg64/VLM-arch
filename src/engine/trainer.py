@@ -138,7 +138,10 @@ class Trainer:
         }
         # Save to current working directory (Hydra manages this)
         save_path = os.path.join(os.getcwd(), "best_model.pth")
-        torch.save(checkpoint, save_path)
+        try:
+            torch.save(checkpoint, save_path)
+        except Exception as e:
+            print(f"Warning: Failed to save checkpoint to {save_path}: {e}")
         
         # if wandb.run is not None:
         #     # Use policy="now" to upload immediately and avoid symlink issues on Windows

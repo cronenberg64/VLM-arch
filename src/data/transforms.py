@@ -15,17 +15,24 @@ def build_transforms(cfg, is_train=True):
         # unless we have strong regularization needs.
         # We'll default to standard CIFAR-style augs for now, but allow expansion.
         
-        transform = transforms.Compose([
+        t_list = []
+        if input_size != 32:
+            t_list.append(transforms.Resize(input_size))
+            
+        t_list.extend([
             transforms.RandomCrop(input_size, padding=4),
             transforms.RandomHorizontalFlip(),
             transforms.ToTensor(),
             transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
         ])
-        return transform
+        return transforms.Compose(t_list)
     else:
-        transform = transforms.Compose([
-            transforms.Resize(input_size), # In case we use larger images later
+        t_list = []
+        if input_size != 32:
+            t_list.append(transforms.Resize(input_size))
+            
+        t_list.extend([
             transforms.ToTensor(),
             transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
         ])
-        return transform
+        return transforms.Compose(t_list)

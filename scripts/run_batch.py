@@ -32,12 +32,18 @@ def run_benchmark(model, dataset='cifar10'):
 
 def run_training(model, dataset='cifar10', subset=None, epochs=100):
     """Run training for a specific configuration"""
-    cmd = f"python scripts/train.py model={model} dataset={dataset} training.epochs={epochs}"
+    cmd = f"python scripts/train.py model={model} dataset={dataset} training.epochs={epochs} debug=true"
     if subset:
         cmd += f" dataset.subset={subset}"
     
     print(f"\nRunning: {cmd}")
-    result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+    # Use check=False to allow handling errors manually, text=True for string output
+    # Stream output to stdout/stderr instead of capturing it to see progress
+    result = subprocess.run(cmd, shell=True)
+    
+    if result.returncode != 0:
+        print(f"Error running {model}")
+        
     return result.returncode == 0
 
 def collect_benchmark_results():

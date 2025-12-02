@@ -20,22 +20,8 @@ class DataModule:
         self.test_dataset = None
 
     def get_transforms(self, train: bool = True):
-        # Basic transforms - will be enhanced in transforms.py
-        mean = (0.4914, 0.4822, 0.4465)
-        std = (0.2023, 0.1994, 0.2010)
-        
-        if train:
-            return transforms.Compose([
-                transforms.RandomCrop(32, padding=4),
-                transforms.RandomHorizontalFlip(),
-                transforms.ToTensor(),
-                transforms.Normalize(mean, std),
-            ])
-        else:
-            return transforms.Compose([
-                transforms.ToTensor(),
-                transforms.Normalize(mean, std),
-            ])
+        from src.data.transforms import build_transforms
+        return build_transforms(self.cfg, is_train=train)
 
     def setup(self):
         if self.dataset_name == 'cifar10':
