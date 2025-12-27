@@ -2,7 +2,7 @@
 
 > **Systematic benchmarking of vision backbones under small-data constraints for real-world robotics deployment**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ---
 
@@ -20,7 +20,7 @@ Most academic benchmarks assume:
 - 1-4 GPUs or edge devices
 - Tight latency, memory, and power constraints
 
-This framework provides **standardized benchmarking** to answer: *Which backbone should a robotics company actually use?*
+This framework provides **standardized benchmarking** to answer: *Which backbone should a robotics developer use given their constraints?*
 
 ---
 
